@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+*.mo
+*.pot
+
+# If your static files include build artifacts, like minified JavaScript
+/static/
+
+# If you're using Django Compressor
+/compressed/
+
+# If you're using the default SQLite database
+*.sqlite3
+
+# Environment variables files
+.env
+
+# Local development settings
+local_settings.py
+
+# Ignore virtual environments
+venv/
+ENV/
+env/
+.venv/
+.ENV/
+
+# Ignore IDE files
+.idea/
+.vscode/
+
+# Ignore backup files
+*.bak
+*.swp
+
+# Mac OS specific files
+.DS_Store
