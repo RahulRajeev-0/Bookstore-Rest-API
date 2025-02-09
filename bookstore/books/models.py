@@ -10,6 +10,7 @@ class Author(models.Model):
     def __str__(self):
         return self.name
 
+
 class Book(models.Model):
     title = models.CharField(max_length=100)
     isbn = models.CharField(max_length=13, unique=True) # length of isbn no is 13 
