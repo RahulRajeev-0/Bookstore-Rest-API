@@ -3,6 +3,7 @@ import re
 
 # models
 from .models import Book, Author
+from reviews.models import Review
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
@@ -82,6 +83,20 @@ class BookSerializer(serializers.ModelSerializer):
         return str(check_digit) == isbn[-1]
     
 
+class ReviewSerializer(serializers.ModelSerializer):
+    user = serializers.StringRelatedField()  # Display username instead of ID
 
+    class Meta:
+        model = Review
+        fields = ['user', 'rating', 'comment', 'created_at']
+
+
+class BookDetailSerializer(serializers.ModelSerializer):
+    authors = AuthorSerializer(many=True, read_only=True)
+    reviews = ReviewSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Book
+        fields = '__all__'
 
     

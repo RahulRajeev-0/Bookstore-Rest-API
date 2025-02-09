@@ -3,7 +3,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response 
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import Author, Book
-from .serializers import AuthorSerializer, BookSerializer
+from .serializers import AuthorSerializer, BookSerializer, BookDetailSerializer
 from rest_framework import status
 from django.db import transaction
 from rest_framework.pagination import PageNumberPagination
@@ -105,3 +105,10 @@ class BookUpdateView(generics.UpdateAPIView):
             {"message": "Book updated successfully", "book": serializer.data},
             status=status.HTTP_200_OK
         )
+
+
+
+class BookDetailView(generics.RetrieveAPIView):
+    queryset = Book.objects.prefetch_related('authors', 'reviews')  # Optimize DB queries
+    serializer_class = BookDetailSerializer
+    permission_classes = [IsAuthenticated]  # Ensure only authenticated users can access

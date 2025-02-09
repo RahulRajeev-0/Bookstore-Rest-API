@@ -8,4 +8,5 @@ urlpatterns = [
      path('books/<int:pk>/delete/', views.BookSoftDeleteView.as_view(), name='book-soft-delete'),
      path('books/<int:pk>/restore/', views.BookRestoreView.as_view(), name='book-restore'),
      path('books/<int:pk>/update/', views.BookUpdateView.as_view(), name='book-update'),
+     path('books/<int:pk>/', views.BookDetailView.as_view(), name='book-detail'),
 ]
