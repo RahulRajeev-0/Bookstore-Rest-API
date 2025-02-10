@@ -1,10 +1,3 @@
-# Bookstore Application Backend 
-
-### API Documentation 
-```
-https://documenter.getpostman.com/view/31743247/2sAYX9mLAU
-```
-
 # 📚 Bookstore API
 
 ## 📝 Overview
@@ -28,8 +21,8 @@ This is the **backend API** for a **Bookstore Application**, built using **Djang
 ### 🔧 Setup Instructions
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/bookstore-api.git
-   cd bookstore-api
+   git clone https://github.com/RahulRajeev-0/Bookstore-Rest-API.git
+   cd Bookstore-Rest-API
    ```
 
 2. **Create and Activate Virtual Environment**
@@ -44,20 +37,22 @@ This is the **backend API** for a **Bookstore Application**, built using **Djang
    ```
 
 4. **Set Up Environment Variables** (Create a `.env` file)
+   Example data
    ```env
    SECRET_KEY=your-secret-key
    DEBUG=True
-   DATABASE_URL=sqlite:///db.sqlite3  # Change this for production
+   
+   DATABASE_NAME=db name
+   DATABASE_USER=postgres
+   DATABASE_PASSWORD=rahul
+   DATABASE_HOST=localhost
+   DATABASE_PORT=5432
    ```
 
-5. **Apply Migrations**
+6. **Apply Migrations**
    ```bash
+   cd bookstore
    python manage.py migrate
-   ```
-
-6. **Create Superuser**
-   ```bash
-   python manage.py createsuperuser
    ```
 
 7. **Run the Development Server**
@@ -67,9 +62,9 @@ This is the **backend API** for a **Bookstore Application**, built using **Djang
 
 ## 🔑 Authentication (JWT)
 The API uses **JWT (JSON Web Token)** for authentication.
-- **Signup**: `POST /api/auth/signup/`
-- **Login**: `POST /api/auth/login/` → Returns an `access_token` & `refresh_token`
-- **Refresh Token**: `POST /api/auth/token/refresh/`
+- **Signup**: `POST /user/sign-up/`
+- **Login**: `POST /user/login/` → Returns an `access_token` & `refresh_token`
+- **Refresh Token**: `POST /user/api/token/refresh//`
 
 👉 **Important:** Apart from **signup and login**, every other endpoint **requires an `Authorization: Bearer <access_token>` header** in the request.
 
